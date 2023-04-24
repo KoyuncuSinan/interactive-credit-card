@@ -6,6 +6,7 @@ export default function Card() {
   const [cardHolderName, setCardHolderName] = useState("Card Holder");
   const [mm, setMM] = useState("00");
   const [yy, setYY] = useState("00");
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleCardNumberChange(e) {
     const value = e.target.value.replace(/\D/g, "");
@@ -40,10 +41,19 @@ export default function Card() {
     )
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if(yy > 50 || yy < 23){
+        alert("Year must be between 23 and 50.")
+    } else if (mm > 12 || mm <= 0){
+        alert("Month must be between 1 and 12")
+    }
+  }
+
   return (
     <>
     <CardItself />
-    <form className="text-black w-[90%] mx-auto mt-10 font-semibold tracking-wider">
+    <form className="text-black w-[90%] mx-auto mt-10 font-semibold tracking-wider" onSubmit={handleSubmit}>
 
       <div className="flex flex-col">
         <label htmlFor="cardHolderName" className="mb-2 text-sm">CARDHOLDER NAME</label>
@@ -101,8 +111,9 @@ export default function Card() {
           className="border-solid border-gray-300 border-[1px] h-[2.5rem] rounded-lg px-3 mr-5"
           minLength="2"
           type="text"
-          max="50"
+          pattern="[0-9]*"
           min="23"
+          max="50"
           onChange={(e) => setYY(e.target.value)}
           placeholder="YY"
           onKeyPress={handleKeyPress}
@@ -116,13 +127,13 @@ export default function Card() {
           maxLength="3"
           className="border-solid border-gray-300 border-[1px] h-[2.5rem] rounded-lg px-3 w-[100%]"
           minLength="3"
-          type="number"
+          type="text"
           placeholder="e.g. 123"
         />
       </div>
       </section>
 
-      <button className="bg-[#21092F] text-white w-[100%] text-center h-[3rem] rounded-lg mt-5 mx-auto">Confirm</button>
+      <button className="bg-[#21092F] text-white w-[100%] text-center h-[3rem] rounded-lg mt-5 mx-auto" type="submit">Confirm</button>
 
     </form>
     </>
