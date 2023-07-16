@@ -23,10 +23,10 @@ export default function Card() {
 
   const ButtonClick = () => {
     return(
-      <div className="mx-auto text-center mt-10 md:right-[30rem] md:top-60 md:w-[30%] md:absolute">
+      <div className="mx-auto text-center mt-10 umd:right-[30rem] umd:top-60 umd:w-[30%] umd:absolute">
         <Image src="icon-complete.svg" width={100} height={100} alt="Complete icon" className="mx-auto"/>
         <h2 className="text-black tracking-widest font-semibold text-3xl mt-5">THANK YOU!</h2>
-        <p className="text-slate-500 font-light tracking-wider mt-3">We've added  your card details</p>
+        <p className="text-slate-500 font-light tracking-wider mt-3">We have ve added  your card details</p>
         <button className="bg-[#21092F] text-white w-[90%] text-center h-[3rem] rounded-lg mt-10 mx-auto" type="submit" onClick={handleButtonClick}>Continue</button>
       </div>
     )
@@ -43,7 +43,7 @@ export default function Card() {
 }
   const CardItself = () => {
     return(
-        <div className="relative w-[80%] ml-4 shadow-2xl md:w-[25%] md:absolute md:top-40 md:left-28 ">
+        <div className="relative w-[80%] xs:w-[70%] ml-4 shadow-2xl umd:w-[25%] umd:absolute umd:top-40 umd:left-28 ">
         <Image
           src="/bg-card-front.png"
           width={300}
@@ -52,10 +52,10 @@ export default function Card() {
           className="w-[100%]"
         />
         <div className="text-white">
-            <Image src= "/card-logo.svg" alt="Card Logo"  width={50} height={40} className="absolute top-4 left-4 md:w-[6rem]"/>
-          <p className="bottom-12 left-4 absolute text-xl font-light tracking-wider md:bottom-20 md:left-8 md:font-bold md:text-3xl">{cardNumber}</p>
-          <p className="absolute bottom-4 left-4 font-extralight tracking-wider text-xs uppercase md:bottom-10 md:left-8">{cardHolderName}</p>
-          <p className="absolute bottom-4 right-6 font-light tracking-wider text-xs md:bottom-10 md:right-12">{`${mm}/${yy}`}</p>
+            <Image src= "/card-logo.svg" alt="Card Logo"  width={50} height={40} className="absolute top-4 left-4 umd:w-[6rem]"/>
+          <p className="bottom-12 left-4 absolute text-xl font-light tracking-wider umd:bottom-20 umd:left-8 umd:font-bold umd:text-3xl">{cardNumber}</p>
+          <p className="absolute bottom-4 left-4 font-extralight tracking-wider text-xs uppercase umd:bottom-10 umd:left-8">{cardHolderName}</p>
+          <p className="absolute bottom-4 right-6 font-light tracking-wider text-xs umd:bottom-10 umd:right-12">{`${mm}/${yy}`}</p>
         </div>
       </div>
     )
@@ -76,7 +76,7 @@ export default function Card() {
     <div>
     <CardItself />
     {isButtonClicked ? <ButtonClick /> : 
-    <form className="text-black w-[90%] mx-auto mt-10 font-semibold tracking-wider md:absolute md:right-[30rem] md:top-60 md:w-[30%]" onSubmit={handleSubmit}>
+    <form className="text-black w-[90%] mx-auto mt-10 font-semibold tracking-wider umd:absolute umd:right-[30rem] umd:top-60 umd:w-[30%]" onSubmit={handleSubmit}>
 
       <div className="flex flex-col">
         <label htmlFor="cardHolderName" className="mb-2 text-sm">CARDHOLDER NAME</label>
